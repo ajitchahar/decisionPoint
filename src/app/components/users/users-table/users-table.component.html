@@ -1,0 +1,33 @@
+<div style="padding: 2rem;">
+    <div *ngIf="fetchingDetails && !apiError" style="text-align: center;"><img width="50px" src="assets/Spinner.gif"></div>
+    <div *ngIf="!fetchingDetails && apiError" class="align-center"><span class="error">Something went wrong !!</span></div>
+    <div *ngIf="!fetchingDetails && !apiError">
+    <form>
+        <div style="margin: auto;max-width: 50%;">
+            <div class="form-group form-inline autocomplete">
+                <input class="form-control col-md-12" placeholder="Search with user id or name" (input)="onSearchChange($event.target.value)" type="text" />
+                <div class="autocomplete-items">
+                    <div *ngFor="let result of searchResult" (click)="displayUserPosts(result)">{{result.name}}</div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersData">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

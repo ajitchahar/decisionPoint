@@ -1,0 +1,16 @@
+<div>
+    <div class="back-icon-container"><a title="Back" routerLink="/users"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div>
+    <div *ngIf="!fetchingDetails && !apiError">
+    <div class="media border p-3 post-container" *ngFor="let post of userPosts">
+        <img src="assets/avatar.jpg" [alt]="userName" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+        <div class="media-body">
+            <h5>{{userName}}<small>&nbsp;&nbsp;<i>Posted an update</i></small></h5>
+            <p><i>{{post.title}}</i></p>
+            <hr>
+            <p>{{post.body}}</p>
+        </div>
+    </div>
+    </div>
+    <div *ngIf="fetchingDetails && !apiError" style="text-align: center;"><img width="50px" src="assets/Spinner.gif"></div>
+    <div *ngIf="!fetchingDetails && apiError" class="align-center"><span class="error">Something went wrong !!</span></div>
+</div>

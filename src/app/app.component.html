@@ -1,0 +1,13 @@
+<body>
+    <div class="fixed-header">
+        <div class="container">
+            <nav>
+                <a [ngClass]="{'active' : nav_param == '/users'}" routerLink="/users">Users</a>
+                <a [ngClass]="{'active' : nav_param == '/d3-js'}" routerLink="/d3-js">D3-JS</a>
+            </nav>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+
+
+

@@ -1,0 +1,25 @@
+.card {
+    margin: 1rem;
+    background: cadetblue;
+
+}
+
+p::first-letter {
+    text-transform: uppercase;
+  }
+
+.post-container {
+    margin: 1rem;
+    background: cadetblue;
+}
+
+.back-icon-container {
+    margin: 0.5rem 1.4rem 0 1.4rem;
+}
+
+.back-icon-container i {
+    border: 2px solid;
+    padding: 5px 15px;
+    border-radius: 14px;
+    cursor: pointer;
+}
