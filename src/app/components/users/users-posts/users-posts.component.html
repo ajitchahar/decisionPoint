@@ -1,16 +1,41 @@
 <div>
     <div class="back-icon-container"><a title="Back" routerLink="/users"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div>
     <div *ngIf="!fetchingDetails && !apiError">
-    <div class="media border p-3 post-container" *ngFor="let post of userPosts">
+    <div  [@listAnimation]="userPosts">
+    <div class="media border p-3 post-container" *ngFor="let post of userPosts; let  i = index">
         <img src="assets/avatar.jpg" [alt]="userName" class="mr-3 mt-3 rounded-circle" style="width:60px;">
         <div class="media-body">
             <h5>{{userName}}<small>&nbsp;&nbsp;<i>Posted an update</i></small></h5>
+            <i class="fa fa-edit edit-icon" (click)="open(content,post, i)" aria-hidden="true"></i>
             <p><i>{{post.title}}</i></p>
             <hr>
             <p>{{post.body}}</p>
         </div>
     </div>
     </div>
+    </div>
     <div *ngIf="fetchingDetails && !apiError" style="text-align: center;"><img width="50px" src="assets/Spinner.gif"></div>
     <div *ngIf="!fetchingDetails && apiError" class="align-center"><span class="error">Something went wrong !!</span></div>
 </div>
+  
+<ng-template #content let-modal>
+<div role="document" class="modal-dialog" style="width: 95%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Post</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modalRef.close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--<input style="width: 100%;" [value]="currentModalPost" (input)="currentModalPost = $event.target.value" />-->
+        <textarea style="width: 100%;" [value]="currentModalPost" (input)="currentModalPost = $event.target.value" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="close()">Save and close</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+  

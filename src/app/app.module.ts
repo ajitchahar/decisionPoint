@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { UsersTableComponent } from './components/users/users-table/users-table.component';
 import { UsersPostsComponent } from './components/users/users-posts/users-posts.component';
 import { D3JsComponent } from './components/d3-js/d3-js.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NgbModule , NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {BehaviorSubject} from 'rxjs';
 
 
 @NgModule({
@@ -19,8 +22,10 @@ import { D3JsComponent } from './components/d3-js/d3-js.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

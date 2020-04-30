@@ -8,6 +8,11 @@ p::first-letter {
     text-transform: uppercase;
   }
 
+.edit-icon {
+    float: right;
+    cursor: pointer;
+}
+
 .post-container {
     margin: 1rem;
     background: cadetblue;
